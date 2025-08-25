@@ -10,10 +10,13 @@ const productIcons = [
   <svg key="icon3" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M17 24V10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><path d="M11 17l6-6 6 6" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
   // X-connect icon
   <svg key="icon4" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M12 17h10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg>
+  // X-Employed icon
+  <svg key="icon5" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#06b6d4" opacity="0.14"/><path d="M17 10v14" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#06b6d4" strokeWidth="2.5"/><path d="M12 17h10" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/></svg>
 ];
 
 const items = [
-  { name: 'X-connect', desc: 'Provides contact info and emails for any domain you enter.', price: '₹5,999', badge: 'New' },
+  { name: 'X-connect', desc: 'Provides contact info and emails for any domain you enter.', price: '₹5,999', badge: 'New', link: '/x-connect', iconIdx: 3 },
+  { name: 'X-Employed', desc: 'Find jobs and connect with the right companies and people. Search for roles, locations, or companies.', price: 'Free', badge: 'Beta', link: '/x-employed', iconIdx: 4 },
 ];
 
 export default function Products() {
@@ -27,13 +30,13 @@ export default function Products() {
         {items.map((p, i) => (
           <div
             key={i}
-            className={`card relative group transition-all duration-300"${hovered===i?' ring-2 ring-brand-500/50 scale-[1.03] shadow-glow':''}`}
+            className={`card relative group transition-all duration-300${hovered===i?' ring-2 ring-brand-500/50 scale-[1.03] shadow-glow':''}`}
             style={{ minHeight: 230, cursor: 'pointer' }}
             onMouseEnter={()=>setHovered(i)}
             onMouseLeave={()=>setHovered(-1)}
           >
             <div className="flex items-center gap-3 mb-1">
-              <span>{productIcons[i]}</span>
+              <span>{productIcons[p.iconIdx]}</span>
               <span className="ml-auto text-xs px-3 py-1 rounded-full bg-brand-50/80 text-brand-700 font-semibold uppercase tracking-wide shadow-sm animate-fadein">{p.badge}</span>
             </div>
             <h3 className="text-lg font-semibold mt-1 text-brand-100 drop-shadow">
@@ -42,7 +45,7 @@ export default function Products() {
             <p className="mt-2 muted text-base min-h-[44px]">{p.desc}</p>
             <div className="mt-6 flex items-center justify-between">
               <span className="font-bold text-lg text-brand-500 drop-shadow">{p.price}</span>
-              <Link href="/x-connect">
+              <Link href={p.link}>
                 <button className="btn" type="button">Learn more</button>
               </Link>
             </div>

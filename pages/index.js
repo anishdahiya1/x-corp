@@ -115,6 +115,7 @@ export default function Home() {
       <svg className="w-full h-16 -mb-1 opacity-60" fill="none"><path d="M0 16 Q380 48 580 0 T1440 13 V64 H0Z" fill="url(#prodwave)" /><defs><linearGradient id="prodwave" x1="0" y1="0" x2="1440" y2="50" gradientUnits="userSpaceOnUse"><stop stopColor="#f472b6" /><stop offset="1" stopColor="#0ea5b7" /></linearGradient></defs></svg>
       {/* Product Showcase */}
       <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10">
+        {/* X-Connect Product */}
         <div className="flex-1 space-y-6 bg-gradient-to-br from-fuchsia-100/25 via-brand-200/15 to-brand-700/10 rounded-3xl p-10 shadow-2xl relative">
           <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-brand-500 drop-shadow-lg mb-2">X-Connect — Next-Level Networking</motion.h3>
           <p className="text-xl text-white/95 max-w-xl leading-relaxed">Revolutionize your networking with <span className='text-fuchsia-400 font-bold'>X-Connect</span>. Discover emails and contact information for any domain or company with ease.</p>
@@ -122,6 +123,17 @@ export default function Home() {
         </div>
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
           <img src="/logo.svg" alt="X-Connect demo" className="w-64 h-64 md:w-80 md:h-80 rounded-[2.25rem] border-4 border-brand-400 shadow-glow bg-black/60 p-10 object-contain hover:scale-105 transition-transform duration-200" />
+        </motion.div>
+      </section>
+      {/* X-Employed Product Showcase */}
+      <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10 mt-10">
+        <div className="flex-1 space-y-6 bg-gradient-to-br from-cyan-100/25 via-blue-200/15 to-indigo-700/10 rounded-3xl p-10 shadow-2xl relative">
+          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-cyan-500 drop-shadow-lg mb-2">X-Employed — Empower Your Career</motion.h3>
+          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Find jobs and connect with the right companies and people. Search for roles, locations, or companies in a futuristic, professional interface.</p>
+          <Link href="/x-employed" className="btn bg-cyan-500 text-black border-0 hover:bg-cyan-700 transition shadow-lg mt-4">Explore X-Employed</Link>
+        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
+          <img src="/logo.svg" alt="X-Employed demo" className="w-64 h-64 md:w-80 md:h-80 rounded-[2.25rem] border-4 border-cyan-400 shadow-glow bg-black/60 p-10 object-contain hover:scale-105 transition-transform duration-200" />
         </motion.div>
       </section>
       {/* Curvy divider before testimonial */}
