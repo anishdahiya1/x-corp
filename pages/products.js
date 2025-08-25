@@ -3,15 +3,15 @@ import Link from 'next/link';
 
 const productIcons = [
   // VisionOS UI Kit icon
-  <svg key="icon1" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M8 17h18" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg>,
+  <span><svg key="icon1" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M8 17h18" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg></span>,
   // Analytics icon
-  <svg key="icon2" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><rect x="9" y="18" width="3" height="7" rx="1.5" fill="#22d3ee"/><rect x="15.5" y="12" width="3" height="13" rx="1.5" fill="#22d3ee"/><rect x="22" y="15" width="3" height="10" rx="1.5" fill="#22d3ee"/></svg>,
+  <span><svg key="icon2" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><rect x="9" y="18" width="3" height="7" rx="1.5" fill="#22d3ee"/><rect x="15.5" y="12" width="3" height="13" rx="1.5" fill="#22d3ee"/><rect x="22" y="15" width="3" height="10" rx="1.5" fill="#22d3ee"/></svg></span>,
   // LaunchKit icon
-  <svg key="icon3" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M17 24V10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><path d="M11 17l6-6 6 6" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  <span><svg key="icon3" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M17 24V10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><path d="M11 17l6-6 6 6" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span>,
   // X-connect icon
-  <svg key="icon4" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M12 17h10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg>
+  <span><svg key="icon4" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M12 17h10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg></span>,
   // X-Employed icon
-  <svg key="icon5" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#06b6d4" opacity="0.14"/><path d="M17 10v14" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#06b6d4" strokeWidth="2.5"/><path d="M12 17h10" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/></svg>
+  <span><svg key="icon5" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#06b6d4" opacity="0.14"/><path d="M17 10v14" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#06b6d4" strokeWidth="2.5"/><path d="M12 17h10" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/></svg></span>
 ];
 
 const items = [
