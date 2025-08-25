@@ -10,7 +10,7 @@ export default function XConnect() {
     alert('Search button clicked');
     console.log('Search button clicked');
     console.log(`Domain being searched: ${searchQuery}`);
-    const apiUrl = `http://40.82.128.111:5001/v1.1.0/sitemap-urls?domain=${encodeURIComponent(searchQuery)}`;
+    const apiUrl = `/api/proxy?domain=${encodeURIComponent(searchQuery)}`;
     console.log(`API URL: ${apiUrl}`);
     try {
       const response = await fetch(apiUrl);
