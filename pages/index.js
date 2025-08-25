@@ -45,7 +45,7 @@ export default function Home() {
           initial={{ scale: 0.7, rotate: 0 }} 
           animate={{ scale: 1.2, rotate: 360 }} 
           transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-          className="absolute top-[-25%] left-[-10%] w-[110vw] h-[96vh] opacity-90" 
+          className="absolute top-0 left-0 w-full h-full opacity-90" 
           style={{ filter: 'blur(120px)' }}
         >
           <div className="w-full h-full rounded-full bg-gradient-to-tr from-fuchsia-400 via-brand-500 to-yellow-400" />
@@ -116,12 +116,12 @@ export default function Home() {
       {/* Product Showcase */}
       <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10">
         <div className="flex-1 space-y-6 bg-gradient-to-br from-fuchsia-100/25 via-brand-200/15 to-brand-700/10 rounded-3xl p-10 shadow-2xl relative">
-          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-brand-500 drop-shadow-lg mb-2">LaunchpadX — Next-Level Starter</motion.h3>
-          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Deploy <span className='text-fuchsia-400 font-bold'>LaunchpadX</span> and have billing, multi-tenant, analytics, and delight baked in. The fastest way to go from zero to product launch—and never look plain.</p>
-          <Link href="/product" className="btn bg-brand-500 text-black border-0 hover:bg-brand-700 transition shadow-lg mt-4">Explore LaunchpadX</Link>
+          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-brand-500 drop-shadow-lg mb-2">X-Connect — Next-Level Networking</motion.h3>
+          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Revolutionize your networking with <span className='text-fuchsia-400 font-bold'>X-Connect</span>. Discover emails and contact information for any domain or company with ease.</p>
+          <Link href="/x-connect" className="btn bg-brand-500 text-black border-0 hover:bg-brand-700 transition shadow-lg mt-4">Explore X-Connect</Link>
         </div>
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
-          <img src="/logo.svg" alt="LaunchpadX demo" className="w-64 h-64 md:w-80 md:h-80 rounded-[2.25rem] border-4 border-brand-400 shadow-glow bg-black/60 p-10 object-contain hover:scale-105 transition-transform duration-200" />
+          <img src="/logo.svg" alt="X-Connect demo" className="w-64 h-64 md:w-80 md:h-80 rounded-[2.25rem] border-4 border-brand-400 shadow-glow bg-black/60 p-10 object-contain hover:scale-105 transition-transform duration-200" />
         </motion.div>
       </section>
       {/* Curvy divider before testimonial */}

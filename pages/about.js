@@ -3,13 +3,28 @@ import { useState } from 'react';
 export default function About() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+
   function onChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
-  function onSubmit(e) {
+
+  async function onSubmit(e) {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3500);
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: 'anishdahiya44@gmail.com',
+          subject: `New message from ${form.name}`,
+          text: `Name: ${form.name}\nEmail: ${form.email}\nMessage: ${form.message}`,
+        }),
+      });
+      setSent(true);
+      setTimeout(() => setSent(false), 3500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
   }
 
   return (
@@ -67,7 +82,7 @@ export default function About() {
               {sent && (
                 <div className="flex items-center gap-2 mt-2 animate-fadein">
                   <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="9" fill="#10b981" opacity=".2"/><path d="M5 9.5l2.5 2 5-5" stroke="#10b981" strokeWidth="1.8" strokeLinecap="round"/></svg>
-                  <p className="text-sm text-green-400">Thanks! Demo form only. Connect Formspree/Resend or your API to handle submissions.</p>
+                  <p className="text-sm text-green-400">Thanks! Your message has been sent successfully.</p>
                 </div>
               )}
             </form>
