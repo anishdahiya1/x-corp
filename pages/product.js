@@ -7,12 +7,15 @@ const productIcons = [
   <svg key="icon2" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><rect x="9" y="18" width="3" height="7" rx="1.5" fill="#22d3ee"/><rect x="15.5" y="12" width="3" height="13" rx="1.5" fill="#22d3ee"/><rect x="22" y="15" width="3" height="10" rx="1.5" fill="#22d3ee"/></svg>,
   // LaunchKit icon
   <svg key="icon3" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M17 24V10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><path d="M11 17l6-6 6 6" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  // Lead Finder icon
+  <svg key="icon4" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M12 17h10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg>
 ];
 
 const items = [
   { name: 'VisionOS UI Kit', desc: 'React components for rapid prototyping.', price: '₹2,999', badge: 'Best Seller' },
   { name: 'X-Analytics', desc: 'Plug-and-play analytics for SaaS dashboards.', price: '₹9,999', badge: 'Advanced' },
   { name: 'LaunchKit', desc: 'Marketing site starter with blog & SEO.', price: '₹4,999', badge: 'New' },
+  { name: 'X-connect', desc: 'Provides contact info and emails for any domain you enter.', price: '₹5,999', badge: 'New' },
 ];
 
 export default function Products() {
