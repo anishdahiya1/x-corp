@@ -5,28 +5,23 @@ import 'tailwindcss/tailwind.css';
 export default function XConnect() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = async () => {
-    alert('Search button clicked');
-    console.log('Search button clicked');
-    console.log(`Domain being searched: ${searchQuery}`);
     const apiUrl = `/api/proxy?domain=${encodeURIComponent(searchQuery)}`;
-    console.log(`API URL: ${apiUrl}`);
     try {
+      setLoading(true);
       const response = await fetch(apiUrl);
-      console.log('API response received:', response);
       const data = await response.json();
-      console.log('Parsed API response:', data);
       if (data.email_sources) {
-        console.log('email_sources found:', data.email_sources);
         setSearchResults(data.email_sources);
       } else {
-        console.log('No email_sources found in the response');
         setSearchResults([]);
       }
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
+    setLoading(false);
   };
 
   const heroVariants = {
@@ -75,48 +70,74 @@ export default function XConnect() {
         <div className="flex flex-col items-center mb-16">
           <input
             type="text"
-            className="w-full max-w-lg px-6 py-3 rounded-lg bg-gray-800 text-white border border-cyan-400 focus:outline-none focus:ring-4 focus:ring-cyan-500 text-lg shadow-md font-mono"
+            className="w-full max-w-lg px-6 py-3 rounded-xl bg-white/20 text-white border border-cyan-400/30 focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-lg shadow-lg font-mono backdrop-blur-md"
             placeholder="Enter domain name..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            style={{fontSize:'1.15rem'}}
           />
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.5 }}
-            className="mt-4 px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition shadow-lg hover:shadow-xl font-sans"
+          <button
             onClick={handleSearch}
+            className="mt-4 px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition shadow-lg hover:shadow-xl font-sans"
+            style={{fontSize:'1.1rem'}}
+            disabled={loading}
           >
-            Search
-          </motion.button>
+            {loading ? (
+              <span className="flex items-center gap-2">
+                <svg className="animate-spin" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="4" opacity="0.2"/><path d="M22 12c0-5.523-4.477-10-10-10" stroke="#fff" strokeWidth="4" strokeLinecap="round"/></svg>
+                Loading...
+              </span>
+            ) : 'Search'}
+          </button>
         </div>
 
         {/* Search Results Section */}
-        {searchResults && searchResults.length > 0 ? (
-          <div className="mt-8 w-full max-w-3xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-4 text-cyan-400">Search Results:</h2>
-            <ul className="list-disc pl-5 text-gray-300">
-              {searchResults.map((result, index) => (
-                <li key={index} className="mb-2">
-                  <p className="text-cyan-400">Email: {result.email}</p>
-                  <ul className="list-disc pl-5">
-                    {result.sources.map((source, idx) => (
-                      <li key={idx}>
-                        <a href={source} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
-                          {source}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          <div className="mt-8 w-full max-w-3xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-4 text-cyan-400">No results found.</h2>
-          </div>
-        )}
+        <div className="mt-10 w-full flex flex-col items-center min-h-[200px]">
+          {loading && (
+            <div className="flex items-center justify-center w-full h-32">
+              <span className="px-6 py-4 rounded-xl bg-white/30 text-cyan-700 font-semibold shadow-lg backdrop-blur-md animate-pulse">Searching...</span>
+            </div>
+          )}
+          {!loading && searchResults && searchResults.length > 0 && (
+            <div className="w-full max-w-4xl overflow-x-auto">
+              <table className="w-full bg-white/20 backdrop-blur-md rounded-xl shadow-xl border border-cyan-400/20 text-left text-base text-cyan-900/90" style={{tableLayout:'auto'}}>
+                <thead>
+                  <tr className="bg-cyan-100/30">
+                    <th className="px-6 py-4 font-bold">Email</th>
+                    <th className="px-6 py-4 font-bold">Source(s)</th>
+                    <th className="px-6 py-4 font-bold">Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {searchResults.map((result, idx) => (
+                    <tr key={idx} className="hover:bg-cyan-100/20 transition-all">
+                      <td className="px-6 py-4 break-all font-mono">{result.email || '-'}</td>
+                      <td className="px-6 py-4 break-all">
+                        {result.sources && result.sources.length > 0 ? (
+                          <ul className="list-disc pl-4">
+                            {result.sources.map((source, sidx) => (
+                              <li key={sidx}>
+                                <a href={source} target="_blank" rel="noopener noreferrer" className="text-cyan-500 hover:underline">{source}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : '-'}
+                      </td>
+                      <td className="px-6 py-4">{result.type || '-'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {!loading && searchResults && searchResults.length === 0 && (
+            <div className="w-full max-w-2xl mt-8">
+              <div className="px-6 py-5 rounded-xl bg-white/20 text-cyan-700/80 font-medium shadow-lg backdrop-blur-md text-center">
+                <span>No professional contacts found for this domain.</span>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
