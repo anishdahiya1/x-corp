@@ -4,10 +4,29 @@ import 'tailwindcss/tailwind.css';
 
 export default function XConnect() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState(null);
 
-  const handleSearch = () => {
-    // Placeholder for search functionality
-    console.log(`Searching for: ${searchQuery}`);
+  const handleSearch = async () => {
+    alert('Search button clicked');
+    console.log('Search button clicked');
+    console.log(`Domain being searched: ${searchQuery}`);
+    const apiUrl = `http://40.82.128.111:5001/v1.1.0/sitemap-urls?domain=${encodeURIComponent(searchQuery)}`;
+    console.log(`API URL: ${apiUrl}`);
+    try {
+      const response = await fetch(apiUrl);
+      console.log('API response received:', response);
+      const data = await response.json();
+      console.log('Parsed API response:', data);
+      if (data.email_sources) {
+        console.log('email_sources found:', data.email_sources);
+        setSearchResults(data.email_sources);
+      } else {
+        console.log('No email_sources found in the response');
+        setSearchResults([]);
+      }
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
   };
 
   const heroVariants = {
@@ -71,6 +90,33 @@ export default function XConnect() {
             Search
           </motion.button>
         </div>
+
+        {/* Search Results Section */}
+        {searchResults && searchResults.length > 0 ? (
+          <div className="mt-8 w-full max-w-3xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold mb-4 text-cyan-400">Search Results:</h2>
+            <ul className="list-disc pl-5 text-gray-300">
+              {searchResults.map((result, index) => (
+                <li key={index} className="mb-2">
+                  <p className="text-cyan-400">Email: {result.email}</p>
+                  <ul className="list-disc pl-5">
+                    {result.sources.map((source, idx) => (
+                      <li key={idx}>
+                        <a href={source} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
+                          {source}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div className="mt-8 w-full max-w-3xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold mb-4 text-cyan-400">No results found.</h2>
+          </div>
+        )}
 
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
