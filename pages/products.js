@@ -26,34 +26,45 @@ export default function Products() {
   const [hovered, setHovered] = useState(-1);
   return (
     <section className="section">
-      <h1 className="h2">Products</h1>
-      <p className="mt-2 muted">Tooling and templates that help you ship faster.</p>
+      <div className="text-center mb-8">
+        <h1 className="h2 text-4xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-fuchsia-400 via-orange-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">X-Corp Products</h1>
+        <p className="text-xl font-semibold text-white/90 mb-2">Empowering you to connect, discover, and save—faster than ever.</p>
+        <p className="mt-2 muted text-lg text-white/70">Tooling and templates that help you ship faster and smarter.</p>
+      </div>
 
       <div className="mt-8 grid sm:grid-cols-1 gap-7">
-        {items.map((p, i) => (
-          <div
-            key={i}
-            className={`card relative group transition-all duration-300${hovered===i?' ring-2 ring-brand-500/50 scale-[1.03] shadow-glow':''}`}
-            style={{ minHeight: 230, cursor: 'pointer' }}
-            onMouseEnter={()=>setHovered(i)}
-            onMouseLeave={()=>setHovered(-1)}
-          >
-            <div className="flex items-center gap-3 mb-1">
-              <span>{productIcons[p.iconIdx]}</span>
-              <span className="ml-auto text-xs px-3 py-1 rounded-full bg-brand-50/80 text-brand-700 font-semibold uppercase tracking-wide shadow-sm animate-fadein">{p.badge}</span>
+        {items.map((p, i) => {
+          // Color accent and gradient per product
+          let cardGradient = '';
+          if (p.name === 'X-connect') cardGradient = 'from-fuchsia-100/40 via-fuchsia-400/10 to-blue-100/10';
+          else if (p.name === 'X-Employed') cardGradient = 'from-cyan-100/40 via-cyan-400/10 to-indigo-100/10';
+          else if (p.name === 'X-Deals') cardGradient = 'from-orange-100/40 via-orange-400/10 to-pink-100/10';
+          else cardGradient = 'from-white/20 via-gray-100/10 to-white/10';
+          return (
+            <div
+              key={i}
+              className={`card relative group transition-all duration-300 ${hovered===i?' ring-2 ring-brand-500/50 scale-[1.03] shadow-glow':''} bg-gradient-to-br ${cardGradient} backdrop-blur-md shadow-xl`}
+              style={{ minHeight: 230, cursor: 'pointer' }}
+              onMouseEnter={()=>setHovered(i)}
+              onMouseLeave={()=>setHovered(-1)}
+            >
+              <div className="flex items-center gap-3 mb-1">
+                <span>{productIcons[p.iconIdx]}</span>
+                <span className="ml-auto text-xs px-3 py-1 rounded-full bg-brand-50/80 text-brand-700 font-semibold uppercase tracking-wide shadow-sm animate-fadein">{p.badge}</span>
+              </div>
+              <h3 className="text-lg font-semibold mt-1 drop-shadow bg-gradient-to-r from-fuchsia-400 via-orange-400 to-cyan-400 bg-clip-text text-transparent">
+                {p.name}
+              </h3>
+              <p className="mt-2 muted text-base min-h-[44px] text-white/90">{p.desc}</p>
+              <div className="mt-6 flex items-center justify-between">
+                <span className="font-bold text-lg drop-shadow bg-gradient-to-r from-fuchsia-400 via-orange-400 to-cyan-400 bg-clip-text text-transparent">{p.price}</span>
+                <Link href={p.link}>
+                  <button className="btn" type="button">Learn more</button>
+                </Link>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold mt-1 text-brand-100 drop-shadow">
-              {p.name}
-            </h3>
-            <p className="mt-2 muted text-base min-h-[44px]">{p.desc}</p>
-            <div className="mt-6 flex items-center justify-between">
-              <span className="font-bold text-lg text-brand-500 drop-shadow">{p.price}</span>
-              <Link href={p.link}>
-                <button className="btn" type="button">Learn more</button>
-              </Link>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="text-center mt-12">
