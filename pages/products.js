@@ -11,12 +11,15 @@ const productIcons = [
   // X-connect icon
   <span><svg key="icon4" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M12 17h10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg></span>,
   // X-Employed icon
-  <span><svg key="icon5" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#06b6d4" opacity="0.14"/><path d="M17 10v14" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#06b6d4" strokeWidth="2.5"/><path d="M12 17h10" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/></svg></span>
+  <span><svg key="icon5" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#06b6d4" opacity="0.14"/><path d="M17 10v14" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#06b6d4" strokeWidth="2.5"/><path d="M12 17h10" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/></svg></span>,
+  // X-Deals icon
+  <span><svg key="icon6" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#f59e42" opacity="0.14"/><path d="M10 24l7-14 7 14" stroke="#f59e42" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#f59e42" strokeWidth="2.5"/></svg></span>
 ];
 
 const items = [
   { name: 'X-connect', desc: 'Provides contact info and emails for any domain you enter.', price: '₹5,999', badge: 'New', link: '/x-connect', iconIdx: 3 },
   { name: 'X-Employed', desc: 'Find jobs and connect with the right companies and people. Search for roles, locations, or companies.', price: 'Free', badge: 'Beta', link: '/x-employed', iconIdx: 4 },
+  { name: 'X-Deals', desc: 'Compare products and get the best price, links, and info. Find the best deals in the market for anything you search.', price: 'Free', badge: 'New', link: '/x-deals', iconIdx: 5 },
 ];
 
 export default function Products() {

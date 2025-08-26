@@ -159,6 +159,19 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+      {/* X-Deals Product Showcase */}
+      <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10 mt-10">
+        <div className="flex-1 space-y-6 bg-gradient-to-br from-orange-100/25 via-pink-200/15 to-indigo-700/10 rounded-3xl p-10 shadow-2xl relative">
+          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-orange-500 drop-shadow-lg mb-2">X-Deals — Get the Best Price</motion.h3>
+          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Compare products and get the best price, links, and info. <span className='text-orange-400 font-bold'>X-Deals</span> finds the best deals in the market for anything you search.</p>
+          <Link href="/x-deals" className="btn bg-orange-500 text-black border-0 hover:bg-orange-700 transition shadow-lg mt-4">Explore X-Deals</Link>
+        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
+          <span className="inline-block animate-bounce-slow rounded-full border-4 border-orange-300/80 bg-orange-400/80 p-2 shadow-lg mb-4">
+            <svg width="64" height="64" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#f59e42" opacity="0.14"/><path d="M10 24l7-14 7 14" stroke="#f59e42" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#f59e42" strokeWidth="2.5"/></svg>
+          </span>
+        </motion.div>
+      </section>
     </>
   );
 }
