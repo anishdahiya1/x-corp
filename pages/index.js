@@ -159,18 +159,41 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-      {/* X-Deals Product Showcase */}
-      <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10 mt-10">
-        <div className="flex-1 space-y-6 bg-gradient-to-br from-orange-100/25 via-pink-200/15 to-indigo-700/10 rounded-3xl p-10 shadow-2xl relative">
-          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-orange-500 drop-shadow-lg mb-2">X-Deals — Get the Best Price</motion.h3>
-          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Compare products and get the best price, links, and info. <span className='text-orange-400 font-bold'>X-Deals</span> finds the best deals in the market for anything you search.</p>
-          <Link href="/x-deals" className="btn bg-orange-500 text-black border-0 hover:bg-orange-700 transition shadow-lg mt-4">Explore X-Deals</Link>
+      {/* Our Products Section - Clean Grid */}
+      <section className="section relative z-10 py-20 bg-gradient-to-br from-white/10 via-gray-100/10 to-white/5">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-fuchsia-400 via-orange-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">Our Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* X-Connect */}
+            <div className="rounded-3xl bg-gradient-to-br from-fuchsia-100/40 via-fuchsia-400/10 to-blue-100/10 shadow-xl p-8 flex flex-col items-center text-center">
+              <span className="mb-4">{/* X-Connect Icon */}<svg width="48" height="48" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#22d3ee" opacity="0.14"/><path d="M12 17h10" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#22d3ee" strokeWidth="2.5"/></svg></span>
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-fuchsia-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">X-Connect</h3>
+              <p className="text-base text-white/90 mb-4">Provides contact info and emails for any domain you enter.</p>
+              <Link href="/x-connect" className="btn bg-brand-500 text-black border-0 hover:bg-brand-700 transition shadow-lg mt-2">Explore X-Connect</Link>
+            </div>
+            {/* X-Employed */}
+            <div className="rounded-3xl bg-gradient-to-br from-cyan-100/40 via-cyan-400/10 to-indigo-100/10 shadow-xl p-8 flex flex-col items-center text-center">
+              <span className="mb-4">{/* X-Employed Icon */}<svg width="48" height="48" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#06b6d4" opacity="0.14"/><path d="M17 10v14" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#06b6d4" strokeWidth="2.5"/><path d="M12 17h10" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round"/></svg></span>
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-600 bg-clip-text text-transparent">X-Employed</h3>
+              <p className="text-base text-white/90 mb-4">Find jobs and connect with the right companies and people. Search for roles, locations, or companies.</p>
+              <Link href="/x-employed" className="btn bg-cyan-500 text-black border-0 hover:bg-cyan-700 transition shadow-lg mt-2">Explore X-Employed</Link>
+            </div>
+            {/* X-Deals */}
+            <div className="rounded-3xl bg-gradient-to-br from-orange-100/40 via-orange-400/10 to-pink-100/10 shadow-xl p-8 flex flex-col items-center text-center">
+              <span className="mb-4">{/* X-Deals Icon */}<svg width="48" height="48" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#f59e42" opacity="0.14"/><path d="M10 24l7-14 7 14" stroke="#f59e42" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#f59e42" strokeWidth="2.5"/></svg></span>
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-orange-400 via-pink-400 to-indigo-600 bg-clip-text text-transparent">X-Deals</h3>
+              <p className="text-base text-white/90 mb-4">Compare products and get the best price, links, and info. Find the best deals in the market for anything you search.</p>
+              <Link href="/x-deals" className="btn bg-orange-500 text-black border-0 hover:bg-orange-700 transition shadow-lg mt-2">Explore X-Deals</Link>
+            </div>
+            {/* X-Govt Tenders */}
+            <div className="rounded-3xl bg-gradient-to-br from-yellow-100/40 via-orange-400/10 to-indigo-100/10 shadow-xl p-8 flex flex-col items-center text-center">
+              <span className="mb-4">{/* X-Govt Tenders Icon */}<svg width="48" height="48" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#f59e42" opacity="0.14"/><path d="M7 24h20M17 10v14" stroke="#f59e42" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#9333ea" strokeWidth="2.5"/></svg></span>
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-indigo-600 bg-clip-text text-transparent">X-Govt Tenders</h3>
+              <p className="text-base text-white/90 mb-4">Get summarized, state-wise tenders for all of India, with monitoring, notifications, and lawyer connections. Premium required for full access.</p>
+              <Link href="/x-govt-tenders" className="btn bg-yellow-500 text-black border-0 hover:bg-yellow-700 transition shadow-lg mt-2">Explore X-Govt Tenders</Link>
+            </div>
+          </div>
         </div>
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
-          <span className="inline-block animate-bounce-slow rounded-full border-4 border-orange-300/80 bg-orange-400/80 p-2 shadow-lg mb-4">
-            <svg width="64" height="64" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#f59e42" opacity="0.14"/><path d="M10 24l7-14 7 14" stroke="#f59e42" strokeWidth="2.5" strokeLinecap="round"/><circle cx="17" cy="17" r="5.5" stroke="#f59e42" strokeWidth="2.5"/></svg>
-          </span>
-        </motion.div>
       </section>
     </>
   );
