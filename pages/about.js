@@ -28,23 +28,23 @@ export default function About() {
   }
 
   return (
-    <section className="section">
+    <section className="section bg-white text-black min-h-screen">
       <div className="grid lg:grid-cols-2 gap-12">
         <div>
-          <h1 className="h2 flex items-center gap-2">
-            <svg width={30} height={30} viewBox="0 0 28 28"><rect width="28" height="28" rx="7" fill="#22d3ee" opacity="0.16"/><path d="M7 10c0-1.657 1.79-3 4-3s4 1.343 4 3-1.79 3-4 3-4-1.343-4-3Zm7 10v-2c0-1.657-1.343-3-3-3H7v5a1 1 0 0 0 1 1h3v-1Zm2 0h3a1 1 0 0 0 1-1v-5h-3c-1.657 0-3 1.343-3 3v2Z" fill="#22d3ee"/></svg>
+          <h1 className="h2 flex items-center gap-2 text-blue-900">
+            <svg width={30} height={30} viewBox="0 0 28 28"><rect width="28" height="28" rx="7" fill="#2563eb" opacity="0.16"/><path d="M7 10c0-1.657 1.79-3 4-3s4 1.343 4 3-1.79 3-4 3-4-1.343-4-3Zm7 10v-2c0-1.657-1.343-3-3-3H7v5a1 1 0 0 0 1 1h3v-1Zm2 0h3a1 1 0 0 0 1-1v-5h-3c-1.657 0-3 1.343-3 3v2Z" fill="#2563eb"/></svg>
             About X-Corp
           </h1>
-          <p className="mt-3 muted text-lg">
-            We are a tight, senior team delivering <b className="text-brand-500">premium digital experiences</b> for founders and enterprises. Strategy → Design → Engineering → Growth.
+          <p className="mt-3 text-lg text-gray-700">
+            We are a senior team delivering <b className="text-blue-700">premium digital experiences</b> for founders and enterprises. Strategy, design, engineering, and growth—all under one roof.
           </p>
 
-          <div className="mt-7 card shadow-glow">
-            <h3 className="text-lg font-bold mb-1 flex items-center gap-2">
-              <svg width={20} height={20} viewBox="0 0 20 20"><rect width="20" height="20" rx="5" fill="#22d3ee" opacity="0.16"/><path d="M5 7a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V7Z" stroke="#22d3ee"/></svg>
+          <div className="mt-7 card shadow-lg bg-blue-50 border border-blue-100">
+            <h3 className="text-lg font-bold mb-1 flex items-center gap-2 text-blue-800">
+              <svg width={20} height={20} viewBox="0 0 20 20"><rect width="20" height="20" rx="5" fill="#2563eb" opacity="0.16"/><path d="M5 7a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V7Z" stroke="#2563eb"/></svg>
               Contact
             </h3>
-            <p className="mt-1 muted">Have a project in mind? Drop us a line.</p>
+            <p className="mt-1 text-gray-600">Have a project in mind? Drop us a line.</p>
 
             <form onSubmit={onSubmit} className="mt-4 grid gap-3">
               <input
@@ -53,7 +53,7 @@ export default function About() {
                 value={form.name}
                 onChange={onChange}
                 placeholder="Your name"
-                className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500/50 shadow-sm"
+                className="w-full rounded-2xl border border-blue-200 bg-white p-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 shadow-sm"
               />
               <input
                 required

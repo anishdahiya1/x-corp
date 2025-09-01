@@ -71,30 +71,24 @@ export default function Home() {
           </defs>
         </svg>
       </div>
-      {/* 3D / Glass / Glow Hero */}
-      <section className="relative flex flex-col items-center justify-center min-h-[92vh] text-white py-14 px-2 overflow-hidden">
-        <motion.div variants={heroVariants} initial="hidden" animate="visible" className="z-10 text-center mx-auto" style={{textShadow:'0 2px 38px #38e8ff60, 0 4px 64px #e0f2fe99'}}>
-          <div className="flex flex-col items-center mb-4">
-            <span className="inline-block animate-bounce-slow rounded-full border-4 border-fuchsia-300/80 bg-fuchsia-400/80 p-2 shadow-lg mb-4">
-              <svg width="36" height="36" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="currentColor"/></svg>
-            </span>
-            <h1 className="text-5xl sm:text-[4.2rem] font-extrabold leading-tight tracking-tight mb-2 drop-shadow-[0_6px_30px_rgba(0,0,0,0.60)]">
-              <span className="block text-white">Build Big.</span>
-              <span className="block text-white">Build Fast.</span>
-              <span className="block relative">
-                <span className="relative z-10 bg-gradient-to-br from-brand-400 via-yellow-200 to-brand-600 bg-clip-text text-transparent">Build with X‑Corp.</span>
-                <motion.div initial={{width:0}} animate={{width:'95%'}} transition={{duration:1.2, delay:0.5}} style={{height:'6px'}}
-                  className="absolute left-[2%] bottom-[-6px] rounded-full bg-gradient-to-r from-brand-400 via-yellow-200 to-brand-600 opacity-70" />
-              </span>
+        {/* Professional Hero Section with Engaging Paragraphs */}
+        <section className="relative flex flex-col items-center justify-center min-h-[70vh] bg-white text-black py-14 px-2 overflow-hidden border-b border-gray-200">
+          <motion.div variants={heroVariants} initial="hidden" animate="visible" className="z-10 text-center mx-auto" style={{textShadow:'0 2px 38px #1e293b20, 0 4px 64px #e0e7ef99'}}>
+            <h1 className="text-5xl sm:text-[4rem] font-extrabold leading-tight tracking-tight mb-6 text-blue-900 drop-shadow-lg">
+              Welcome to X-Corp
             </h1>
-            <p className="mt-7 text-xl max-w-2xl text-white/95 leading-relaxed">From napkin sketch to <span className='text-brand-400'>world-scale app</span>—<span className='text-yellow-300 font-semibold'>strategy</span>, <span className='text-pink-300'>UI</span>, and <span className='text-fuchsia-200'>full-stack engineering</span> on demand.</p>
-            <div className="mt-11 flex flex-wrap gap-6 justify-center">
-              <Link href="/about" className="btn bg-gradient-to-tr from-brand-400 via-fuchsia-400 to-yellow-300 text-black shadow-xl shadow-yellow-100 hover:scale-110 transition-transform duration-150">Start Your Project</Link>
-              <Link href="/product" className="btn-ghost border-2 border-fuchsia-400 text-fuchsia-200 hover:bg-fuchsia-500/10 hover:scale-105 transition-transform duration-150">See Our Work</Link>
+            <p className="mt-3 text-xl max-w-2xl mx-auto text-gray-700 leading-relaxed">
+              X-Corp is your partner for building world-class digital products, fast. We combine strategy, design, and engineering to help founders and enterprises launch with confidence and style. Our team delivers robust solutions, beautiful interfaces, and seamless user experiences.
+            </p>
+            <p className="mt-6 text-lg max-w-2xl mx-auto text-gray-600">
+              Whether youre a startup or a large organization, we bring your ideas to life with precision and creativity. From concept to launch, we focus on quality, speed, and innovation. Lets build something extraordinary together.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-6 justify-center">
+              <Link href="/about" className="btn bg-blue-700 text-white shadow-xl hover:bg-blue-900 transition-transform duration-150">Start Your Project</Link>
+              <Link href="/products" className="btn-ghost border-2 border-blue-700 text-blue-700 hover:bg-blue-50 hover:scale-105 transition-transform duration-150">See Our Products</Link>
             </div>
-          </div>
-        </motion.div>
-      </section>
+          </motion.div>
+        </section>
       {/* Wavy divider to Features */}
       <svg className="w-full h-20 -mb-2" fill="none"><path d="M0 32 Q360 40 740 16 Q1120 -8 1440 8 V80 H0Z" fill="url(#featwave)" /><defs><linearGradient id="featwave" x1="0" y1="0" x2="1440" y2="50" gradientUnits="userSpaceOnUse"><stop stopColor="#0ea5b7" /><stop offset="1" stopColor="#f472b6" /></linearGradient></defs></svg>
       {/* Features Section */}
@@ -114,28 +108,7 @@ export default function Home() {
       {/* Squiggle divider to next */}
       <svg className="w-full h-16 -mb-1 opacity-60" fill="none"><path d="M0 16 Q380 48 580 0 T1440 13 V64 H0Z" fill="url(#prodwave)" /><defs><linearGradient id="prodwave" x1="0" y1="0" x2="1440" y2="50" gradientUnits="userSpaceOnUse"><stop stopColor="#f472b6" /><stop offset="1" stopColor="#0ea5b7" /></linearGradient></defs></svg>
       {/* Product Showcase */}
-      <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10">
-        {/* X-Connect Product */}
-        <div className="flex-1 space-y-6 bg-gradient-to-br from-fuchsia-100/25 via-brand-200/15 to-brand-700/10 rounded-3xl p-10 shadow-2xl relative">
-          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-brand-500 drop-shadow-lg mb-2">X-Connect — Next-Level Networking</motion.h3>
-          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Revolutionize your networking with <span className='text-fuchsia-400 font-bold'>X-Connect</span>. Discover emails and contact information for any domain or company with ease.</p>
-          <Link href="/x-connect" className="btn bg-brand-500 text-black border-0 hover:bg-brand-700 transition shadow-lg mt-4">Explore X-Connect</Link>
-        </div>
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
-          <img src="/logo.svg" alt="X-Connect demo" className="w-64 h-64 md:w-80 md:h-80 rounded-[2.25rem] border-4 border-brand-400 shadow-glow bg-black/60 p-10 object-contain hover:scale-105 transition-transform duration-200" />
-        </motion.div>
-      </section>
-      {/* X-Employed Product Showcase */}
-      <section className="section flex flex-col lg:flex-row gap-14 items-center relative z-10 mt-10">
-        <div className="flex-1 space-y-6 bg-gradient-to-br from-cyan-100/25 via-blue-200/15 to-indigo-700/10 rounded-3xl p-10 shadow-2xl relative">
-          <motion.h3 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="h2 text-cyan-500 drop-shadow-lg mb-2">X-Employed — Empower Your Career</motion.h3>
-          <p className="text-xl text-white/95 max-w-xl leading-relaxed">Find jobs and connect with the right companies and people. Search for roles, locations, or companies in a futuristic, professional interface.</p>
-          <Link href="/x-employed" className="btn bg-cyan-500 text-black border-0 hover:bg-cyan-700 transition shadow-lg mt-4">Explore X-Employed</Link>
-        </div>
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="flex-1 flex justify-center items-center">
-          <img src="/logo.svg" alt="X-Employed demo" className="w-64 h-64 md:w-80 md:h-80 rounded-[2.25rem] border-4 border-cyan-400 shadow-glow bg-black/60 p-10 object-contain hover:scale-105 transition-transform duration-200" />
-        </motion.div>
-      </section>
+  {/* ...existing code... */}
       {/* Curvy divider before testimonial */}
       <svg className="w-full h-20 -mb-2" fill="none"><path d="M0 22 Q450 60 850 4 T1440 36 V80 H0Z" fill="url(#testiwave)" /><defs><linearGradient id="testiwave" x1="0" y1="0" x2="1440" y2="50" gradientUnits="userSpaceOnUse"><stop stopColor="#38e8ff" /><stop offset="1" stopColor="#0ea5b7" /></linearGradient></defs></svg>
       {/* Testimonial Section */}
